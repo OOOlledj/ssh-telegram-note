@@ -1,0 +1,10 @@
+#!/bin/bash
+export $project_path
+
+ip=`echo $SSH_CONNECTION | cut -d " " -f 1`
+hostname=`hostname`
+fqdn=`hostname -f`
+
+logger -t ssh-wrapper $USER login from $ip
+
+python3 $project_path/main.py
