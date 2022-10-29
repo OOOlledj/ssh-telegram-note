@@ -1,5 +1,7 @@
 import logging
 import sys
+import traceback
+
 from aiogram import Bot, Dispatcher, executor
 from config import TOKEN, ADMINS, AUTH_LOG
 # TOKEN = 'TG BOT TOKEN'
@@ -21,7 +23,10 @@ async def notify_admins (dp: Dispatcher):
                 text1 += f'▶ {i}'
             await dp.bot.send_message(chat_id=admin, text=text1)
         except Exception as err:
-            logging.exception(err)
+            print('Something went wrong while cooking notification:')
+            print('------------------------------------------------')
+            print(traceback.format_exc(), end='')
+            print('------------------------------------------------')
 
 async def on_startup(dp):
     print('Server notified admins about successful authorization!')
