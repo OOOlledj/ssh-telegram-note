@@ -5,5 +5,7 @@ async def set_default_commands(dp):
         types.BotCommand('memory', '(free -h) память сервера'),
         types.BotCommand('storage', '(df -hT) разделы дисков'),
         types.BotCommand('cpu', '(top -d) использование процессора'),
-        types.BotCommand('status', '(systemctl status) состояние службы'),
+        types.BotCommand('status', '(systemctl status) состояние служб'),
+        types.BotCommand('uptime', '(uptime) время работы'),
+        types.BotCommand('network', '(ifconfig) сетевые интерфейсы'),
     ])
