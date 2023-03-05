@@ -1,5 +1,7 @@
 #!/bin/bash
 export $project_path
+# или сделайте прямо здесь:
+# project_path=/home/ooolledj/ssh-telegram-note
 
 ip=`echo $SSH_CONNECTION | cut -d " " -f 1`
 hostname=`hostname`
@@ -7,4 +9,4 @@ fqdn=`hostname -f`
 
 logger -t ssh-wrapper $USER login from $ip
 
-python3 $project_path/ssh_notify_script
+python3 $project_path/ssh_notify_script.py

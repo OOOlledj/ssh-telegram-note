@@ -23,4 +23,5 @@ def notify_text():
 
 if __name__ == '__main__':
     for admin in ADMINS:
+        print('\nAdministrators will be notified about new SSH session via Telegram!\n')
         res = req.get(url=f'https://api.telegram.org/bot{TOKEN}/sendMessage?chat_id={admin}&text={notify_text()}')

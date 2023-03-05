@@ -3,6 +3,7 @@ from aiogram import Dispatcher
 from data.config import ADMINS
 
 async def on_startup_notify(dp: Dispatcher):
+    '''Уведомить администраторов сообщением в телеграм о том, что бот запущен'''
     for admin in ADMINS:
         try:
             text = '️❗🖥️ Бот перезапустился 🖥️❗'
