@@ -24,6 +24,8 @@ async def get_server_file(message: types.Message):
             await message.answer(f'Не удалось найти файл или директорию "{filepath}"\n{ex}')
         except PermissionError as ex:
             await message.answer(f'Нет доступа к файлу или директории "{filepath}"\n{ex}')
+        except IsADirectoryError as ex:
+            await message.answer(f'Не могу скачать директорию "{filepath}"\n{ex}')
         except Exception:
             await message.answer(f'Что-то пошло не так:\n{traceback.format_exc()}')
 
@@ -36,7 +38,6 @@ async def get_dir_ls(message: types.Message):
         try:
             if filepath == '':
                 raise FileNotFoundError('Не указан путь к директории или файлу')
-            print(message.get_command())
             if message.get_command() == '/ls':
                 text = linux_command_ex(f'ls -lh {filepath}')
             if message.get_command() == '/lsa':
