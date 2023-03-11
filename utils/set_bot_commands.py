@@ -10,5 +10,10 @@ async def set_default_commands(dp):
         types.BotCommand('uptime', '(uptime) время работы'),
         types.BotCommand('status', '(systemctl status) состояние служб'),
         types.BotCommand('network', '(ifconfig) сетевые интерфейсы'),
-        types.BotCommand('ovpn', 'Подключенные пользователи'),
+        types.BotCommand('ovpn_conn', 'Подключенные пользователи'),
+        types.BotCommand('ovpn_log', 'Логи сервера OpenVPN'),
+        types.BotCommand('getfl', 'Скачать файл'),
+        types.BotCommand('ls', 'Файлы в директории'),
+        types.BotCommand('lsa', 'Файлы в диретории (скрытые)')
+
     ])

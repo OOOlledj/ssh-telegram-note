@@ -4,6 +4,7 @@ import os
 import random
 import traceback
 
+
 def linux_command_ex(command):
     '''Выполнить команду в терминале на linux хосте'''
     try:

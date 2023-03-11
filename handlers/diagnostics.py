@@ -1,4 +1,4 @@
-'''Обработка диагностических комманд (не вносят изменений в систему)'''
+'''Обработка диагностических комманд'''
 
 import traceback
 
@@ -6,6 +6,7 @@ from aiogram import types
 from loader import dp
 from utils.check_admin import check_admin
 from utils.linux_commands import linux_command_ex, create_temp_file, remove_temp_file
+
 
 @dp.message_handler(text='/memory')
 async def memory(message: types.Message):
@@ -16,6 +17,7 @@ async def memory(message: types.Message):
     else:
         pass
 
+
 @dp.message_handler(text='/cpu')
 async def cpu(message: types.Message):
     '''Процессор, top -b -n 1 | head -n 15'''
@@ -25,6 +27,7 @@ async def cpu(message: types.Message):
     else:
         pass
 
+
 @dp.message_handler(text='/storage')
 async def storage(message: types.Message):
     '''Диск, df -hT'''
@@ -33,6 +36,7 @@ async def storage(message: types.Message):
         await message.answer(text)
     else:
         pass
+
 
 @dp.message_handler(text='/status')
 async def sysstatus(message: types.Message):
@@ -68,6 +72,7 @@ async def network(message: types.Message):
         remove_temp_file(temp_file)
     else:
         pass
+
 
 @dp.message_handler(text='/uptime')
 async def memory(message: types.Message):
