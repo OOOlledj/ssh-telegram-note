@@ -2,7 +2,7 @@ import logging
 from aiogram import Dispatcher
 from aiogram import types
 from data.config import ADMINS
-from .db_logger import log_command
+from utils.db_logger import log_command
 
 
 async def check_admin(message: types.Message):

@@ -1,0 +1,17 @@
+[Unit]
+Description=Server status bot for Telegram
+
+[Service]
+Type=simple
+User=ooolledj
+Group=ooolledj
+WorkingDirectory=/home/ooolledj/ssh-telegram-note
+ExecStart=python3 app.py
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
+Restart=on-failure
+
+
+[Install]
+WantedBy=multi-user.target
+
