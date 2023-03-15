@@ -39,7 +39,7 @@ async def storage(message: types.Message):
 
 
 @dp.message_handler(text='/status')
-async def sysstatus(message: types.Message):
+async def sys_status(message: types.Message):
     '''Службы, systemctl status
        Возвращает файл'''
     if await check_admin(message):

@@ -2,3 +2,4 @@ venv
 .idea
 data/config.py
 __pycache__
+bot_log.db

@@ -11,11 +11,10 @@ from utils.linux_commands import linux_command_ex, create_temp_file, remove_temp
 @dp.message_handler(text='/ovpn_conn',)
 async def ovpn_status(message: types.Message):
     '''cat /var/log/openvpn/status.log'''
-    args = message.get_args()
-    if args!='':
-        await message.answer(args)
-
     if await check_admin(message):
+        args = message.get_args()
+        if args != '':
+            await message.answer(args)
         text = linux_command_ex('cat /var/log/openvpn/status.log')
         if text=='':
             text = '/var/log/openvpn.log is empty!'
@@ -27,11 +26,10 @@ async def ovpn_status(message: types.Message):
 @dp.message_handler(text='/ovpn_log',)
 async def ovpn_log(message: types.Message):
     '''cat /var/log/openvpn/status.log'''
-    args = message.get_args()
-    if args!='':
-        await message.answer(args)
-
     if await check_admin(message):
+        args = message.get_args()
+        if args != '':
+            await message.answer(args)
         text = linux_command_ex('cat /var/log/syslog | grep vpn')
         temp_file = create_temp_file(text, prefix='syslog-ovpn-')
         file = open(temp_file, 'rb')
