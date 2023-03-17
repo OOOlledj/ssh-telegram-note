@@ -7,12 +7,15 @@
 
 ### Установка ssh-notifier:
 1. установить requirements.txt;
-2. поместите файл <span style="color:red">sshrc</span> в <span style="color:red">/etc/ssh/sshrc</span>;
+2. поместите файл <span style="color:red">sshrc</span> в <span style="color:red">/etc/ssh/sshrc</span> или добавьте в свой файл:
+   - project_path=/home/ooolledj/ssh-telegram-note
+   - python3 $project_path/ssh_notify_script.py
 3. создайтей файл для конфигурации <span style="color:red">config.py</span> в папке "data", укажите переменные:
    - <span style="color:blue">TOKEN</span> = 'Токен бота';
    - <span style="color:blue">ADMINS</span> = ['tg-user-id-1', 'tg-user-id-2', ... ];
    - <span style="color:blue">AUTH_LOG</span> = '/var/log/auth.log';
 4. создайте переменную окружения <span style="color:red">$project_path</span> в которой записан путь к проекту;
+   - Или экспортируйте прямо в sshrc согласно пункту 2;
 5. расшарьте пользователю права на чтение auth.log. Я использовал <span style="color:green">/usr/sbin/usermod -a -G adm ooolledj</span>;
 6. Для тестирования откройте сессию в терминале (<span style="color:green">$ ssh 127.0.0.1</span>).
 
