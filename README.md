@@ -11,9 +11,10 @@
    - project_path=/home/ooolledj/ssh-telegram-note
    - python3 $project_path/ssh_notify_script.py
 3. создайтей файл для конфигурации <span style="color:red">config.py</span> в папке "data", укажите переменные:
-   - <span style="color:blue">TOKEN</span> = 'Токен бота';
-   - <span style="color:blue">ADMINS</span> = ['tg-user-id-1', 'tg-user-id-2', ... ];
-   - <span style="color:blue">AUTH_LOG</span> = '/var/log/auth.log';
+   ```
+   TOKEN = 'Токен бота';
+   ADMINS = ['tg-user-id-1', 'tg-user-id-2', ... ];
+   AUTH_LOG = '/var/log/auth.log';```
 4. создайте переменную окружения <span style="color:red">$project_path</span> в которой записан путь к проекту;
    - Или экспортируйте прямо в sshrc согласно пункту 2;
 5. расшарьте пользователю права на чтение auth.log. Я использовал <span style="color:green">/usr/sbin/usermod -a -G adm ooolledj</span>;
@@ -21,9 +22,11 @@
 
 ### Можно запустить основного бота ~~(позднее сделаю файл сервиса) через app.py~~ через systemctl. Для этого нужно поместить файл tgbot.service в папку /etc/systemd/system/
 Соответственно, в файле нужно изменить под себя следующие опции:
+```
 User=<Ваш юзер>
 Group=<Ваша группа>
 WorkingDirectory=<Директория проекта>
+```
 
 ### Боту можно отправлять сообщения в телеграме и получать диагностическую и другую информацию:
 1. /memory - "free -h";
